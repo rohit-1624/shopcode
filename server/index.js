@@ -5,6 +5,7 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const app = express()
 const Razorpay = require("razorpay")
+const PORT = 8080;
 
 const instance = new Razorpay({
     key_id: 'rzp_test_x4CFM9QD0dIlUp',
@@ -37,6 +38,10 @@ app.post('/order', async (req, res) => {
     }
 })
 
+app.get("/", (req, res) => {
+    res.send("Backend is working!");
+});
+
 
 app.get('/payments', async (req, res) => {
     try{
@@ -50,3 +55,5 @@ app.get('/payments', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+module.exports = app;
