@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
@@ -34,10 +36,6 @@ app.post('/order', async (req, res) => {
         res.status(500).json(err)
     }
 })
-
-app.get("/", (req, res) => {
-    res.send("Backend is working!");
-});
 
 
 app.get('/payments', async (req, res) => {
