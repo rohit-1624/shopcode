@@ -35,6 +35,11 @@ app.post('/order', async (req, res) => {
     }
 })
 
+app.get("/", (req, res) => {
+    res.send("Backend is working!");
+});
+
+
 app.get('/payments', async (req, res) => {
     try{
         const payments = await instance.payments.all()
