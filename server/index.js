@@ -5,14 +5,16 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const app = express()
 const Razorpay = require("razorpay")
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 const instance = new Razorpay({
     key_id: 'rzp_test_x4CFM9QD0dIlUp',
     key_secret: 'YdsrnientoxQ0THcJsWTsLc4'
 })
 
-app.listen(8080)
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())

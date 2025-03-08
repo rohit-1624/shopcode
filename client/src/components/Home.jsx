@@ -93,7 +93,7 @@ const Home = ({ slider, title = "Latest Products" }) => {
             product.userId = session.uid
             product.status = "pending"
             const amount = product.price - (product.price * product.discount) / 100
-            const { data } = await axios.post('http://localhost:8080/order', { amount: amount })
+            const { data } = await axios.post('https://shopcode-hd49.vercel.app/order', { amount: amount })
             console.log(data)
             const options = {
                 key: 'rzp_test_x4CFM9QD0dIlUp',
