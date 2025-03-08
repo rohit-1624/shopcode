@@ -1,55 +1,61 @@
 require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const Razorpay = require("razorpay");
 
-const app = express();
+const express = require("express")
+const cors = require("cors")
+const bodyParser = require("body-parser")
+const app = express()
+const Razorpay = require("razorpay")
 const PORT = process.env.PORT || 8080;
 
 const instance = new Razorpay({
-    key_id: process.env.rzp_test_x4CFM9QD0dIlUp,
-    key_secret: process.env.YdsrnientoxQ0THcJsWTsLc4
-});
+    key_id: 'rzp_test_x4CFM9QD0dIlUp',
+    key_secret: 'YdsrnientoxQ0THcJsWTsLc4'
+})
 
-app.use(cors()); 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})
+app.use(cors())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+
 
 app.post('/order', async (req, res) => {
-    try {
-        console.log("Received order request for amount:", req.body.amount);
-        
+    try{
         const newOrder = await instance.orders.create({
-            amount: req.body.amount * 100, // Convert to paise
+            amount: req.body.amount * 100,
             currency: "INR",
-            receipt: 'CO_RP_' + Date.now()
-        });
-
+            receipt: ' CO_RP_' + Date.now()
+        })
         res.json({
             amount: newOrder.amount,
             orderId: newOrder.id
-        });
-    } catch (err) {
-        console.error("Order creation error:", err);
-        res.status(500).json({ error: "Internal Server Error", details: err });
+        })
     }
-});
+    
+    catch(err)
+    {
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
 
 app.get("/", (req, res) => {
     res.send("Backend is working!");
 });
 
-app.get('/payments', async (req, res) => {
-    try {
-        const payments = await instance.payments.all();
-        res.json(payments);
-    } catch (err) {
-        console.error("Payment fetch error:", err);
-        res.status(500).json({ error: "Internal Server Error", details: err });
-    }
-});
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+app.get('/payments', async (req, res) => {
+    try{
+        const payments = await instance.payments.all()
+        res.json(payments)
+    }
+    
+    catch(err)
+    {
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
+
+module.exports = app;
