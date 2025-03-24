@@ -18,29 +18,6 @@ I have created an E-commerce shopping website with components, routers, etc. usi
 - **Razorpay** - Payment gateway for secure transactions.
 - **Vercel** - Deployment platform.
 
-## Installation & Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/your-ecommerce.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd your-ecommerce
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Set up Firebase and Razorpay keys in an `.env` file:
-   ```bash
-   REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
-   REACT_APP_RAZORPAY_KEY=your_razorpay_key
-   ```
-5. Start the development server:
-   ```bash
-   npm start
-   ```
-
 ## Deployment
 This project is deployed on **Vercel**. You can access it [here](your-live-link.com).
 
