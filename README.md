@@ -46,9 +46,9 @@ This project is deployed on **Vercel**. You can access it [here](your-live-link.
 
 ## Contact
 If you have any questions or want to collaborate, feel free to reach out to me:
-- Email: your-email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourusername)
-- GitHub: [Your GitHub](https://github.com/yourusername)
+- Email: rohitsharmasharma4689@gmail.com
+- LinkedIn: https://www.linkedin.com/in/rohit-sharma-870ab2261/
+- GitHub: https://github.com/rohit-1624
 
 ---
 **Feel free to fork, contribute, or provide feedback!** 🚀
